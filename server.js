@@ -18,6 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var router = express.Router();
 
 router.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     console.log('Something is happening.');
     next();
 });
@@ -115,4 +117,4 @@ router.route('/profile/:id')
     });
 
 app.use('/api', router);
-app.listen(8080);
+app.listen(3000);
